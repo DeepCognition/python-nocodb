@@ -176,6 +176,16 @@ class NocoDBRequestsClient(NocoDBClient):
             url=self.__api_info.get_table_meta_uri(tableId, "reorder"),
             json={ "order": order }
         ).json()
+
+    def table_info(
+        self, tableId: str,
+    ) -> dict:
+        return self._request(
+            "GET",
+            url=self.__api_info.get_table_meta_uri(tableId, ""),
+        ).json()
+    
+    
     
     def table_column_create(
         self, tableId: str, body: dict,
