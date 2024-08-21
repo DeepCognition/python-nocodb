@@ -15,7 +15,7 @@ setup(
        "Operating System :: OS Independent",
    ],
    description='A package to use NocoDB API in a simple way',
-   long_description=open('README.md').read(),
+   long_description=open('README.md', encoding='utf-8').read(),
    long_description_content_type="text/markdown",
    install_requires=[
        "requests>=2.0",
