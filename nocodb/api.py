@@ -85,6 +85,17 @@ class NocoDBAPI:
             )
         ))
     
+    def get_project_users_uri(
+        self, project: NocoDBProject,
+    ) -> str:
+        return urljoin(self.__base_meta_uri, "/".join(
+            (
+                "projects",
+                project.project_name,
+                "users"
+            )
+        ))
+    
     def get_table_meta_uri(
         self, tableId: str, operation: str = None,
     ) -> str:

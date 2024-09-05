@@ -229,3 +229,12 @@ class NocoDBRequestsClient(NocoDBClient):
             url=self.__api_info.get_view_meta_uri(viewId, "filters"),
             json=body,
         ).json()
+
+    def project_users_list(
+        self, project: NocoDBProject,
+    ) -> dict:
+        print(self.__api_info.get_project_users_uri(project))
+        return self._request(
+            "GET",
+            url=self.__api_info.get_project_users_uri(project),
+        ).json()
