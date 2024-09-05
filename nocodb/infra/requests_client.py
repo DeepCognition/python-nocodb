@@ -220,3 +220,12 @@ class NocoDBRequestsClient(NocoDBClient):
             "POST",
             url=self.__api_info.get_column_uri(columnId, "primary"),
         ).json()
+    
+    def view_filter_create(
+        self, viewId: str, body: dict,
+    ) -> dict:
+        return self._request(
+            "POST",
+            url=self.__api_info.get_view_meta_uri(viewId, "filters"),
+            json=body,
+        ).json()

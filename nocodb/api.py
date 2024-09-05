@@ -99,6 +99,20 @@ class NocoDBAPI:
             ] + additional_path
         ))
     
+    def get_view_meta_uri(
+        self, viewId: str, operation: str = None,
+    ) -> str:
+        additional_path = []
+        if operation is not None:
+            additional_path.append(operation)
+
+        return urljoin(self.__base_meta_uri, "/".join(
+            [
+                "views",
+                viewId,
+            ] + additional_path
+        ))
+    
     def get_column_uri(
         self, columnId: str, operation: str = None,
     ) -> str:
